@@ -17,6 +17,24 @@ interface InterfaceAPI {
         @Query("wordType")wordType : String
     ): Call<Players>
 
+    @GET("/players/:playerId")
+    @Headers("Content-Type: application/json")
+    fun searchPlayerInfo(
+        @Path("playerId")playerId : String
+    ): Call<PlayerInfo>
+
+    @GET("/players/:playerId/matches")
+    @Headers("Content-Type: application/json")
+    fun searchMatching(
+        @Path("playerId")playerId: String,
+        @Query("gameTypeId")gameTypeId: String,
+        @Query("startDate")startDate: String,
+        @Query("endDate")endDate: String,
+        @Query("limit")limit: Int,
+        @Query("next")next: String,
+    ): Call<PlayerMatch>
+
+
     companion object{
         fun create(): InterfaceAPI {
             val retrofit = Retrofit.Builder()
