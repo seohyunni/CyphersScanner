@@ -1,0 +1,37 @@
+package com.seohyunni.cyphersscanner.model
+
+import com.google.gson.annotations.SerializedName
+
+data class PlayInfo(
+    @SerializedName("result") val result: String,
+    @SerializedName("random") val random: Boolean,
+    @SerializedName("partyUserCount") val partyUserCount: Int,
+    @SerializedName("partyInfo") val partyInfo: List<PartyInfo>,
+    @SerializedName("playTypeName") val playTypeName: String,
+    @SerializedName("characterId") val characterId: String,
+    @SerializedName("characterName") val characterName: String,
+    @SerializedName("level") val level: Int,
+    @SerializedName("killCount") val killCount: Int,
+    @SerializedName("assistCount") val assistCount: Int,
+    @SerializedName("attackPoint") val attackPoint: Int,
+    @SerializedName("damagePoint") val damagePoint: Int,
+    @SerializedName("battlePoint") val battlePoint: Int,
+    @SerializedName("sightPoint") val sightPoint: Int,
+    @SerializedName("towerAttackPoint") val towerAttackPoint: Int,
+    @SerializedName("backAttackCount") val backAttackCount: Int,
+    @SerializedName("comboCount") val comboCount: Int,
+    @SerializedName("spellCount") val spellCount: Int,
+    @SerializedName("healAmount") val healAmount: Int,
+    @SerializedName("sentinelKillCount") val sentinelKillCount: Int,
+    @SerializedName("demolisherKillCount") val demolisherKillCount: Int,
+    @SerializedName("trooperKillCount") val trooperKillCount: Int,
+    @SerializedName("guardianKillCount") val guardianKillCount: Int,
+    @SerializedName("guardTowerKillCount") val guardTowerKillCount: Int,
+    @SerializedName("getCoin") val getCoin: Int,
+    @SerializedName("spendCoin") val spendCoin: Int,
+    @SerializedName("spendConsumablesCoin") val spendConsumablesCoin: Int,
+    @SerializedName("playTime") val playTime: Int,
+    @SerializedName("responseTime") val responseTime: Int,
+    @SerializedName("minLifeTime") val minLifeTime: Int,
+    @SerializedName("maxLifeTime") val maxLifeTime: Int,
+)
