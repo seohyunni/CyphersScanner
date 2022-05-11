@@ -6,5 +6,5 @@ data class MatchRows(
     @SerializedName("date") val date: String,
     @SerializedName("matchId") val matchId: String,
     @SerializedName("map") val map: Map,
-    @SerializedName("position") val position: Position,
+    @SerializedName("position") val position: Position
 )
