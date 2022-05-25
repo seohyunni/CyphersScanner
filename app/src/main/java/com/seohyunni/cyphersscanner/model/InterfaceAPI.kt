@@ -1,5 +1,6 @@
 package com.seohyunni.cyphersscanner.model
 
+import android.media.Rating
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -31,9 +32,36 @@ interface InterfaceAPI {
         @Query("startDate")startDate: String,
         @Query("endDate")endDate: String,
         @Query("limit")limit: Int,
-        @Query("next")next: String,
+        @Query("next")next: String
     ): Call<PlayerMatch>
 
+    @GET("/matches/:matchId")
+    @Headers("Content-Type: application/json")
+    fun matchDetailInfo(
+        @Query("date") date: String,
+        @Query("gameTypeId") gameTypeId: String,
+        @Query("map") map: Map,
+        @Query("teams") teams: List<Teams>,
+        @Query("players") players: List<TeamPlayers>
+    )
+
+    @GET("/ranking/ratingpoint")
+    @Headers("Content-Type: application/json")
+    fun checkRatingPoint(
+        @Query("rows") rows: List<RatingRows>
+    )
+
+    @GET("/ranking/characters/:characterId/:rankingType")
+    @Headers("Content-Type: application/json")
+    fun getCharacterRanking(
+        @Query("rows") rows: List<CRankingRows>
+    )
+
+    @GET("/ranking/tsj/:tsjType")
+    @Headers("Content-Type: application/json")
+    fun getTsjRanking(
+        @Query("rows") rows: List<TSJRankRows>
+    )
 
     companion object{
         fun create(): InterfaceAPI {

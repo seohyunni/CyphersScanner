@@ -2,11 +2,10 @@ package com.seohyunni.cyphersscanner.model
 
 import com.google.gson.annotations.SerializedName
 
-data class PlayInfo(
-    @SerializedName("result") val result: String,
+class TeamPlayInfo(
     @SerializedName("random") val random: Boolean,
     @SerializedName("partyUserCount") val partyUserCount: Int,
-    @SerializedName("partyInfo") val partyInfo: List<PartyInfo>,
+    @SerializedName("partyId") val partyId: String,
     @SerializedName("playTypeName") val playTypeName: String,
     @SerializedName("characterId") val characterId: String,
     @SerializedName("characterName") val characterName: String,
