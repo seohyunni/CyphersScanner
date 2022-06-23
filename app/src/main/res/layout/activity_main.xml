@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/cyphers_black"
-        tools:context=".MainActivity">
+        tools:context=".view.MainActivity">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/main_toolbar"
@@ -91,7 +91,7 @@
                     />
 
                 <Button
-                    android:id="@+id/search_rank_character"
+                    android:id="@+id/search_rank_character_btn"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:text="@string/search_character_rank"
@@ -113,7 +113,7 @@
                 android:layout_marginTop="10dp">
 
                 <Button
-                    android:id="@+id/search_rank"
+                    android:id="@+id/search_rank_btn"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:text="@string/search_rank"
@@ -126,7 +126,7 @@
                     />
 
                 <Button
-                    android:id="@+id/notice"
+                    android:id="@+id/notice_btn"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:text="@string/notice"
@@ -165,11 +165,11 @@
                 android:fontFamily="sans-serif-medium"/>
 
             <TextView
-                android:id="@+id/rink_developer"
+                android:id="@+id/rink_question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:text="@string/intoduce_developer"
+                android:text="@string/question"
                 android:textColor="@color/white"
                 android:textSize="13sp"
                 android:textStyle="normal"

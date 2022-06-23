@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/box_radius_border_yellow.xml" value="0.1285" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1285" />
         <entry key="app/src/main/res/drawable/rounded_square.xml" value="0.1285" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1484882183928988" />
+        <entry key="app/src/main/res/layout/activity_question.xml" value="0.1890625" />
       </map>
     </option>
   </component>
