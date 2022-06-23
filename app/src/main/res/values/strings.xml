@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">CyphersScanner</string>
+    <string name="cyphers">Cyphers</string>
+    <string name="scanner">Scanner</string>
+    <string name="search_record">전적 검색</string>
+    <string name="search_character_rank">캐릭터 랭킹 검색</string>
+    <string name="search_rank">공식전 랭킹 검색</string>
+    <string name="notice">사이퍼즈 스캐너\n패치 노트</string>
+    <string name="goto_homepage"><u>사이퍼즈 공식 홈페이지 이동</u></string>
+    <string name="intoduce_developer"><u>개발자 소개</u></string>
 </resources>

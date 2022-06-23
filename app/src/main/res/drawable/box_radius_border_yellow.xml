@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-  
-</selector>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/underline_gray">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="4dp"/>
+            <stroke android:color="@color/cyphers_yellow" android:width="2dp"/>
+        </shape>
+    </item>
+</ripple>
