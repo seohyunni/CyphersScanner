@@ -9,4 +9,7 @@
     <string name="goto_homepage"><u>사이퍼즈 공식 홈페이지 이동</u></string>
     <string name="question"><u>문의</u></string>
     <string name="question_notice">게시판 기능은 준비 중입니다.\n문의 사항은\n\n<b>shyunni0331@naver.com</b> \n\n으로 메일 보내 주시면 확인 후 답변드리겠습니다.\n감사합니다.</string>
+    <string name="notice_non_enter">사이퍼즈 스캐너 패치 노트</string>
+    <string name="version_text">v1.0</string>
+    <string name="notice_v1.0.0">사이퍼즈 스캐너가 출시되었습니다!\n부족한 어플이지만 많은 이용 부탁드립니다 :D</string>
 </resources>
