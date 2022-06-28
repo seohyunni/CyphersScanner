@@ -6,4 +6,5 @@
     <color name="cyphers_yellow">#F7E626</color>
     <color name="cyphers_black">#040603</color>
     <color name="underline_gray">#C9C9C9</color>
+    <color name="search_gray">#C6C6C6</color>
 </resources>

@@ -15,7 +15,7 @@ interface InterfaceAPI {
     @Headers("Content-Type: application/json")
     fun searchPlayer(
         @Query("nickname")nickname : String,
-        @Query("wordType")wordType : String
+        @Query("wordType")wordType : String?
     ): Call<Players>
 
     @GET("/players/:playerId")

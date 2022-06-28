@@ -7,11 +7,12 @@
     <data>
         <variable
             name="mainViewModel"
-            type="com.seohyunni.cyphersscanner.view.NoticeActivity" />
+            type="com.seohyunni.cyphersscanner.view.SearchRecordActivity" />
         <import type="android.view.View"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/search_record_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/cyphers_black">
@@ -72,10 +73,10 @@
 
 
         <TextView
-            android:id="@+id/title_notice"
+            android:id="@+id/title_record"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/notice_non_enter"
+            android:text="@string/search_record"
             android:textSize="20sp"
             android:textColor="@color/white"
             android:textStyle="bold"
@@ -85,26 +86,17 @@
             android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"/>
 
-        <com.skydoves.expandablelayout.ExpandableLayout
-            android:id="@+id/expandable"
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            app:expandable_duration="200"
-            app:expandable_animation="accelerate"
-            app:expandable_isExpanded="false"
-            app:expandable_parentLayout="@layout/layout_notice_parent"
-            app:expandable_secondLayout="@layout/layout_notice_item"
-            app:expandable_showSpinner="true"
-            app:expandable_spinner_animate="true"
-            app:expandable_spinner_margin="14dp"
-            app:expandable_spinner_gravity="end"
-            app:expandable_spinner_size="32dp"
+            android:layout_height="40dp"
+            app:iconifiedByDefault="false"
+            app:searchIcon="@drawable/search_icon"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toBottomOf="@id/title_record"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title_notice"
-        />
-
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:queryBackground="@drawable/search_background"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
