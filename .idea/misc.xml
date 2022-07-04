@@ -11,7 +11,8 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1484882183928988" />
         <entry key="app/src/main/res/layout/activity_notice.xml" value="0.20208333333333334" />
         <entry key="app/src/main/res/layout/activity_question.xml" value="0.1890625" />
-        <entry key="app/src/main/res/layout/activity_search_record.xml" value="0.20208333333333334" />
+        <entry key="app/src/main/res/layout/activity_search_record.xml" value="0.231591796875" />
+        <entry key="app/src/main/res/layout/item_record.xml" value="0.20208333333333334" />
         <entry key="app/src/main/res/layout/layout_notice_item.xml" value="0.2145746866861979" />
         <entry key="app/src/main/res/layout/layout_notice_parent.xml" value="0.14335734049479165" />
       </map>

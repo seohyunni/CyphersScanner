@@ -14,4 +14,6 @@
     <string name="notice_v1.0.0">사이퍼즈 스캐너가 출시되었습니다!\n부족한 어플이지만 많은 이용 부탁드립니다 :D</string>
     <string name="search_nickname_empty">검색할 닉네임을 입력해 주세요.</string>
     <string name="search_error">오류가 발생했습니다.</string>
+    <string name="win_rate">일반전 승률</string>
+    <string name="rank_win_rate">공식전 승률</string>
 </resources>
