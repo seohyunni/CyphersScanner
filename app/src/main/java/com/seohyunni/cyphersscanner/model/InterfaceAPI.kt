@@ -38,12 +38,8 @@ interface InterfaceAPI {
     @GET("/matches/:matchId")
     @Headers("Content-Type: application/json")
     fun matchDetailInfo(
-        @Query("date") date: String,
-        @Query("gameTypeId") gameTypeId: String,
-        @Query("map") map: Map,
-        @Query("teams") teams: List<Teams>,
-        @Query("players") players: List<TeamPlayers>
-    )
+        @Path("matchId") matchId: String
+    ) : Call<MatchDetail>
 
     @GET("/ranking/ratingpoint")
     @Headers("Content-Type: application/json")

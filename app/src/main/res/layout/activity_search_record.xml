@@ -99,6 +99,21 @@
             app:queryBackground="@drawable/search_background"/>
 
         <TextView
+            android:id="@+id/player_not_found"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/player_not_found"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            app:layout_constraintTop_toBottomOf="@id/search_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"/>
+
+        <TextView
             android:id="@+id/result_grade"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -148,50 +163,14 @@
             android:visibility="visible"/>
 
         <LinearLayout
-            android:id="@+id/wrap_rank_win_rate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/result_grade"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="@id/result_grade">
-
-            <TextView
-                android:id="@+id/rank_win_rate_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="normal"
-                android:text="@string/rank_win_rate"
-                android:textColor="@color/search_gray"
-                android:textSize="15sp"
-                android:fontFamily="sans-serif-medium"
-                android:layout_gravity="center"
-                android:gravity="start"
-                android:visibility="visible"/>
-
-            <TextView
-                android:id="@+id/rank_win_rate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="55%"
-                android:textColor="@color/search_gray"
-                android:textSize="15sp"
-                android:fontFamily="sans-serif-medium"
-                android:layout_gravity="center"
-                android:gravity="start"
-                android:layout_marginTop="15dp"
-                android:visibility="visible"/>
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/wrap_win_rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@id/result_clan"
             android:layout_marginTop="20dp"
-            app:layout_constraintStart_toStartOf="@id/result_clan">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <TextView
                 android:id="@+id/win_rate_text"
@@ -207,17 +186,26 @@
                 android:visibility="visible"/>
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="826승 826패"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                android:textSize="15sp"
+                android:layout_marginTop="5dp"
+                android:visibility="visible"/>
+
+            <TextView
                 android:id="@+id/win_rate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="55%"
+                android:text="50%"
                 android:textColor="@color/search_gray"
                 android:textSize="15sp"
                 android:fontFamily="sans-serif-medium"
                 android:layout_gravity="center"
-                android:gravity="start"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="5dp"
                 android:visibility="visible"/>
         </LinearLayout>
 
@@ -227,11 +215,25 @@
             android:layout_height="0dp"
             android:background="@color/cyphers_black"
             android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/wrap_rank_win_rate"
+            app:layout_constraintTop_toBottomOf="@id/wrap_win_rate"
             app:layout_constraintBottom_toBottomOf="parent"
             android:visibility="visible"
             tools:listitem="@layout/item_record"/>
 
+        <TextView
+            android:id="@+id/record_not_found"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/record_not_found"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            app:layout_constraintTop_toBottomOf="@id/wrap_win_rate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="30dp"
+            android:visibility="gone"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
