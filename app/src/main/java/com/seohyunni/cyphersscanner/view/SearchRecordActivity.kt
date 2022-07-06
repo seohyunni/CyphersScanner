@@ -7,6 +7,7 @@ import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.snackbar.Snackbar
+import com.seohyunni.cyphersscanner.BuildConfig
 import com.seohyunni.cyphersscanner.R
 import com.seohyunni.cyphersscanner.databinding.ActivitySearchRecordBinding
 import com.seohyunni.cyphersscanner.model.InterfaceAPI
@@ -34,7 +35,12 @@ class SearchRecordActivity : AppCompatActivity()  {
 
         dataBinding.lifecycleOwner = this
 
-        dataBinding.searchView.isSubmitButtonEnabled = true
+        dataBinding.searchView.isSubmitButtonEnabled = false
+
+        dataBinding.resultNickname.visibility = View.GONE
+        dataBinding.resultGrade.visibility = View.GONE
+        dataBinding.resultClan.visibility = View.GONE
+        dataBinding.wrapWinRate.visibility = View.GONE
 
         dataBinding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener,
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
@@ -51,7 +57,7 @@ class SearchRecordActivity : AppCompatActivity()  {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 //검색창 글자 바뀔 때마다
-                TODO("Not yet implemented")
+                return false
             }
 
         })
@@ -66,17 +72,25 @@ class SearchRecordActivity : AppCompatActivity()  {
     }
 
     private fun searchRecord(nickname:String){
-        val request = InterfaceAPI.create().searchPlayer(nickname,null)
+        val request = InterfaceAPI.create().searchPlayer(nickname,"match", BuildConfig.API_KEY)
         request.enqueue(object: Callback<Players>{
             override fun onResponse(call: Call<Players>, response: Response<Players>) {
                 if(response.isSuccessful){
                     Log.d("test","searchRecord is successful")
-                    if(response.body()!!.nickname.isEmpty()){
+                    if(response.body()!!.rows.isEmpty()){
+                        Log.d("test","nickname.isEmpty()")
                         dataBinding.playerNotFound.visibility = View.VISIBLE
+                        dataBinding.resultNickname.visibility = View.GONE
+                        dataBinding.resultGrade.visibility = View.GONE
+                        dataBinding.resultClan.visibility = View.GONE
+                        dataBinding.wrapWinRate.visibility = View.GONE
                     } else{
-                        searchPlayerResult(response.body()!!.playerId, nickname, response.body()!!.grade)
+                        Log.d("test","success, response.body : ${response.body()!!.rows[0].grade}")
+                        dataBinding.playerNotFound.visibility = View.GONE
+                        searchPlayerResult(response.body()!!.rows[0].playerId, nickname, response.body()!!.rows[0].grade)
                     }
                 } else{
+                    Log.d("test","searchRecord is not successful")
                     dataBinding.playerNotFound.visibility = View.VISIBLE
                 }
             }
@@ -89,12 +103,17 @@ class SearchRecordActivity : AppCompatActivity()  {
     }
 
     private fun searchPlayerResult(playerId:String, nickname: String, grade:Int){
+        Log.d("test","searchPlayerResult")
         dataBinding.resultNickname.text = nickname
         dataBinding.resultGrade.text = "${grade}급"
 
-        val request = InterfaceAPI.create().searchPlayerInfo(playerId)
+        dataBinding.resultNickname.visibility = View.VISIBLE
+        dataBinding.resultGrade.visibility = View.VISIBLE
+
+        val request = InterfaceAPI.create().searchPlayerInfo(playerId, BuildConfig.API_KEY)
         request.enqueue(object: Callback<PlayerInfo>{
             override fun onResponse(call: Call<PlayerInfo>, response: Response<PlayerInfo>) {
+                Log.d("test","searchPlayerResult")
                 dataBinding.resultClan.text = response.body()!!.clanName
                 searchRecordResult(playerId)
             }
@@ -107,7 +126,7 @@ class SearchRecordActivity : AppCompatActivity()  {
     }
 
     private fun searchRecordResult(playerId: String){
-        val request = InterfaceAPI.create().searchMatching(playerId,"normal","","",100,"")
+        val request = InterfaceAPI.create().searchMatching(playerId,"normal","","",100,"", BuildConfig.API_KEY)
         request.enqueue(object: Callback<PlayerMatch>{
             override fun onResponse(call: Call<PlayerMatch>, response: Response<PlayerMatch>) {
                 TODO("Not yet implemented")

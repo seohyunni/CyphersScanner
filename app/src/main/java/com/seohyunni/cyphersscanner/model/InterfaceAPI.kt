@@ -1,6 +1,7 @@
 package com.seohyunni.cyphersscanner.model
 
 import android.media.Rating
+import com.seohyunni.cyphersscanner.BuildConfig
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -11,20 +12,22 @@ import retrofit2.http.Query
 
 interface InterfaceAPI {
 
-    @GET("/players")
+    @GET("players")
     @Headers("Content-Type: application/json")
     fun searchPlayer(
         @Query("nickname")nickname : String,
-        @Query("wordType")wordType : String?
+        @Query("wordType")wordType : String?,
+        @Query("apikey")apikey : String
     ): Call<Players>
 
-    @GET("/players/:playerId")
+    @GET("players/{playerId}")
     @Headers("Content-Type: application/json")
     fun searchPlayerInfo(
-        @Path("playerId")playerId : String
+        @Path("playerId")playerId : String,
+        @Query("apikey")apikey : String
     ): Call<PlayerInfo>
 
-    @GET("/players/:playerId/matches")
+    @GET("players/{playerId}/matches")
     @Headers("Content-Type: application/json")
     fun searchMatching(
         @Path("playerId")playerId: String,
@@ -32,37 +35,42 @@ interface InterfaceAPI {
         @Query("startDate")startDate: String,
         @Query("endDate")endDate: String,
         @Query("limit")limit: Int,
-        @Query("next")next: String
+        @Query("next")next: String,
+        @Query("apikey")apikey : String
     ): Call<PlayerMatch>
 
-    @GET("/matches/:matchId")
+    @GET("matches/{matchId}")
     @Headers("Content-Type: application/json")
     fun matchDetailInfo(
-        @Path("matchId") matchId: String
+        @Path("matchId") matchId: String,
+        @Query("apikey")apikey : String
     ) : Call<MatchDetail>
 
-    @GET("/ranking/ratingpoint")
+    @GET("ranking/ratingpoint")
     @Headers("Content-Type: application/json")
     fun checkRatingPoint(
-        @Query("rows") rows: List<RatingRows>
+        @Query("rows") rows: List<RatingRows>,
+        @Query("apikey")apikey : String
     )
 
-    @GET("/ranking/characters/:characterId/:rankingType")
+    @GET("ranking/characters/{characterId}/{rankingType}")
     @Headers("Content-Type: application/json")
     fun getCharacterRanking(
-        @Query("rows") rows: List<CRankingRows>
+        @Query("rows") rows: List<CRankingRows>,
+        @Query("apikey")apikey : String
     )
 
-    @GET("/ranking/tsj/:tsjType")
+    @GET("ranking/tsj/{tsjType}")
     @Headers("Content-Type: application/json")
     fun getTsjRanking(
-        @Query("rows") rows: List<TSJRankRows>
+        @Query("rows") rows: List<TSJRankRows>,
+        @Query("apikey")apikey : String
     )
 
     companion object{
         fun create(): InterfaceAPI {
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://api.neople.co.kr/cy")
+                .baseUrl(BuildConfig.API_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
