@@ -115,6 +115,10 @@ class SearchRecordActivity : AppCompatActivity()  {
             override fun onResponse(call: Call<PlayerInfo>, response: Response<PlayerInfo>) {
                 Log.d("test","searchPlayerResult")
                 dataBinding.resultClan.text = response.body()!!.clanName
+                dataBinding.winRateText.text = "${response.body()!!.records[1].winCount}승 ${response.body()!!.records[1].loseCount}패"
+                val winRate = response.body()!!.records[1].winCount/(response.body()!!.records[1].loseCount+response.body()!!.records[1].winCount)*100
+                dataBinding.winRate.text = winRate.toString()
+                dataBinding.wrapWinRate.visibility = View.VISIBLE
                 searchRecordResult(playerId)
             }
 
@@ -129,11 +133,12 @@ class SearchRecordActivity : AppCompatActivity()  {
         val request = InterfaceAPI.create().searchMatching(playerId,"normal","","",100,"", BuildConfig.API_KEY)
         request.enqueue(object: Callback<PlayerMatch>{
             override fun onResponse(call: Call<PlayerMatch>, response: Response<PlayerMatch>) {
-                TODO("Not yet implemented")
+                recordAdapter.setItems(listOf(response.body()!!))
             }
 
             override fun onFailure(call: Call<PlayerMatch>, t: Throwable) {
-                TODO("Not yet implemented")
+               val errorSnackbar = Snackbar.make(dataBinding.searchRecordLayout, "오류가 발생했습니다.", Snackbar.LENGTH_SHORT)
+                errorSnackbar.show()
             }
         })
     }
